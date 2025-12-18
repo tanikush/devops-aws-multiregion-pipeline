@@ -1,0 +1,16 @@
+# Images Directory
+This directory contains project screenshots and diagrams.
+
+## Screenshots to Add:
+1. CloudFormation Stacks - All CREATE_COMPLETE
+2. Lambda Functions Dashboard
+3. DynamoDB Table View
+4. CodePipeline Execution
+5. API Gateway Configuration
+6. CloudWatch Monitoring Dashboard
+
+## Instructions:
+1. Take screenshots of your AWS Console
+2. Save them in this directory
+3. Update README.md image paths
+4. Replace placeholder URLs with actual image paths
