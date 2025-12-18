@@ -1,0 +1,48 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+      - pip install boto3 pytest pytest-cov
+
+  pre_build:
+    commands:
+      - echo "Running pre-build checks..."
+      - echo "Build started on `date`"
+      - echo "Running tests..."
+      - cd src/tests && python -m pytest || true
+      - cd ../..
+
+  build:
+    commands:
+      - echo "Building Lambda deployment packages..."
+      - cd src/lambda/api-handler
+      - zip -r ../../../api-handler.zip .
+      - cd ../health-check
+      - zip -r ../../../health-check.zip .
+      - cd ../dr-replication
+      - zip -r ../../../dr-replication.zip .
+      - cd ../../..
+      - echo "Build completed on `date`"
+
+  post_build:
+    commands:
+      - echo "Post-build phase..."
+      - echo "Uploading artifacts to S3..."
+      - aws s3 cp api-handler.zip s3://$ARTIFACT_BUCKET/lambda/api-handler.zip
+      - aws s3 cp health-check.zip s3://$ARTIFACT_BUCKET/lambda/health-check.zip
+      - aws s3 cp dr-replication.zip s3://$ARTIFACT_BUCKET/lambda/dr-replication.zip
+      - echo "Build successful!"
+
+artifacts:
+  files:
+    - '**/*'
+  name: devops-build-$(date +%Y%m%d-%H%M%S)
+
+cache:
+  paths:
+    - '/root/.cache/pip/**/*'

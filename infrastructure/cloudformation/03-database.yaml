@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'DynamoDB Tables for Primary and DR regions'
+
+Parameters:
+  TableName:
+    Type: String
+    Default: DevOpsMetrics
+    Description: DynamoDB table name
+
+Resources:
+  # DynamoDB Table
+  MetricsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref TableName
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+        - AttributeName: timestamp
+          KeyType: RANGE
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+      Tags:
+        - Key: Project
+          Value: DevOps-MultiRegion
+        - Key: Environment
+          Value: Production
+
+Outputs:
+  TableName:
+    Description: DynamoDB Table Name
+    Value: !Ref MetricsTable
+  
+  TableArn:
+    Description: DynamoDB Table ARN
+    Value: !GetAtt MetricsTable.Arn
+  
+  StreamArn:
+    Description: DynamoDB Stream ARN
+    Value: !GetAtt MetricsTable.StreamArn
