@@ -11,17 +11,19 @@ Enterprise-grade serverless CI/CD pipeline demonstrating multi-region architectu
 
 ## 📸 Project Screenshots
 
+### AWS Console - CloudFormation Stacks
+![CloudFormation Stacks](./docs/images/cloudformation-stacks.png)
+*All 4 CloudFormation stacks successfully deployed with CREATE_COMPLETE status*
+
+### Lambda Functions Dashboard
+![Lambda Functions](./docs/images/lambda-functions.png)
+*Serverless API handler function deployed and ready*
+
 ### Architecture Overview
 ![Architecture Diagram](https://via.placeholder.com/800x400/2E86AB/FFFFFF?text=Multi-Region+Serverless+CI%2FCD+Pipeline)
 
-### AWS Console - CloudFormation Stacks
-![CloudFormation Stacks](https://via.placeholder.com/800x300/28A745/FFFFFF?text=CloudFormation+Stacks+-+All+CREATE_COMPLETE)
-
 ### CodePipeline Dashboard
 ![CodePipeline](https://via.placeholder.com/800x300/007BFF/FFFFFF?text=CodePipeline+-+Automated+Deployment)
-
-### Lambda Functions
-![Lambda Functions](https://via.placeholder.com/800x300/FD7E14/FFFFFF?text=Lambda+Functions+-+Serverless+API)
 
 ### DynamoDB Table
 ![DynamoDB](https://via.placeholder.com/800x300/6F42C1/FFFFFF?text=DynamoDB+-+Metrics+Storage)
