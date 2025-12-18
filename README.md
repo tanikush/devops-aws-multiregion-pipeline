@@ -19,17 +19,21 @@ Enterprise-grade serverless CI/CD pipeline demonstrating multi-region architectu
 ![Lambda Functions](./docs/images/lambda-functions.png)
 *Serverless API handler function deployed and ready*
 
-### Architecture Overview
-![Architecture Diagram](https://via.placeholder.com/800x400/2E86AB/FFFFFF?text=Multi-Region+Serverless+CI%2FCD+Pipeline)
-
 ### CodePipeline Dashboard
-![CodePipeline](https://via.placeholder.com/800x300/007BFF/FFFFFF?text=CodePipeline+-+Automated+Deployment)
+![CodePipeline](./docs/images/codepipeline-dashboard.png)
+*Automated CI/CD pipeline with Source and Build stages*
+
+### API Gateway Configuration
+![API Gateway](./docs/images/api-gateway.png)
+*HTTP API with multiple routes for health checks and metrics*
 
 ### DynamoDB Table
-![DynamoDB](https://via.placeholder.com/800x300/6F42C1/FFFFFF?text=DynamoDB+-+Metrics+Storage)
+![DynamoDB](./docs/images/dynamodb-table.png)
+*NoSQL database for storing deployment metrics*
 
 ### CloudWatch Monitoring
-![CloudWatch](https://via.placeholder.com/800x300/DC3545/FFFFFF?text=CloudWatch+-+Real-time+Monitoring)
+![CloudWatch](./docs/images/cloudwatch-monitoring.png)
+*Real-time monitoring and logging dashboard*
 
 ## 🏗️ Architecture
 
